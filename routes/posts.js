@@ -49,6 +49,8 @@ router.post("/posts", async (req, res) => {
 
 
 
+
+
 // 수정하기
 // 만약에 아이디와 비번이 아니면 펄스 맞으면 리턴값으 뽑아줘서 성공
 router.put("/posts/:postId", async (req, res) => {
