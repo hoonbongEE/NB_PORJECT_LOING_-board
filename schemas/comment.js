@@ -1,31 +1,31 @@
-const mongoose = require("mongoose")
+// const mongoose = require("mongoose")
 
-const commentScheama = new mongoose.Schema({
-    user: {
-        type: String
-    },
+// const commentScheama = new mongoose.Schema({
+//     user: {
+//         type: String
+//     },
 
-    password: {
-        type: String,
-        required: true
-    },
+//     password: {
+//         type: String,
+//         required: true
+//     },
 
-    content: {
-        type: String
-    },
+//     content: {
+//         type: String
+//     },
 
-    __v: {
-        type: Number,
-        select: false
-    },
+//     __v: {
+//         type: Number,
+//         select: false
+//     },
 
-    date: {
-        type: Date,
-    },
+//     date: {
+//         type: Date,
+//     },
 
-    postid: {
-        type: String,
-    }
-})
+//     postid: {
+//         type: String,
+//     }
+// })
 
-module.exports = mongoose.model("Comments", commentScheama)
+// module.exports = mongoose.model("Comments", commentScheama)
