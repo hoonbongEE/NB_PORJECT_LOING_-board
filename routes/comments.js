@@ -35,6 +35,7 @@
 //   });
 // });
 
+
 // module.exports = router;
 router.get("/posts/:postId/com", async (req, res) => {
     const { postId } = req.params;

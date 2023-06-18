@@ -14,6 +14,7 @@ app.use("", [postsRouter,indexRouter]);
 
 
 
+
 // app.get('/api', (req, res) => {
 //     res.send('Hello 못함');
 //   });

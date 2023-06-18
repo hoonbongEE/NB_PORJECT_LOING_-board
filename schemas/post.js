@@ -11,6 +11,7 @@ const postSchema = new mongoose.Schema({
     required: true, 
   
   },
+  
   postPassword: {
     type: String,
     required: true, //이게 무조건 있어야하는가 
