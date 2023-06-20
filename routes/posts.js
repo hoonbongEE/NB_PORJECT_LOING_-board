@@ -72,6 +72,7 @@ router.put("/posts/:postId", async (req, res) => {
 });
 
 
+//삭제하기
 router.delete("/posts/:postId", async (req, res) => {
   const { postId } = req.params;
   const { postPassword } = req.body;
