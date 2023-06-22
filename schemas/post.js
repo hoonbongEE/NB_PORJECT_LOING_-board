@@ -1,12 +1,13 @@
 const mongoose = require("mongoose");
 
-
+// new mongoose.Schema
 const postsSchema = {
   posts: {
     email: {
       type: String,
       // ref: 'User',
       required: true,
+      unique: true,
       
     },
     postUser: {
@@ -31,6 +32,13 @@ const postsSchema = {
     },
   },
 };
+// postsSchema.virtual("postId").get(function () {
+//   return this._id.toHexString();
+// });
+// postsSchema.set("toJSON", {
+//   virtuals: true,
+// });
+
 
 
 module.exports = mongoose.model("Posts",postsSchema);
