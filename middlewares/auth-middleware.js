@@ -25,10 +25,8 @@ module.exports = async (req, res, next) => {
     // 1. authToken이 만료되었는지 확인
     // 2. authToken이 서버에서 발급된 토큰이 맞는지 검증
     const { userId } = jwt.verify(authToken, "customized-secret-key");
-
     // console.log(userId)
-    
-
+  
     // 3. authToken에 있는 userId에 해당하는 사용자가 실제 DB에 존재하는지 확인
     const user = await User.findById(userId);
     res.locals.user = user;
