@@ -26,7 +26,7 @@ router.post("/auth", async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({
-      errorMessage: "서버 오류가 발생했습니다.",
+      errorMessage: "로그인에 실패하였습니다.",
     });
   }
 });

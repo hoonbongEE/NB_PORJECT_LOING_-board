@@ -38,14 +38,14 @@ router
     try {
       if (!email || !Title || !Content || !postUser) {
         return res.status(400).json({
-          errorMessage: "데이터 형식이 올바르지 않습니다.",
+          errorMessage: "입력 방식이 잘 못 되었습니다.",
         });
       } else {
         await Posts.create({ posts: { email, postUser, Title, Content } });
         res.status(200).json({ result: "게시 완료" });
       }
     } catch (error) {
-      return res.status(500).json({ msg: "값을 못 받아옴" })
+      return res.status(500).json({ msg: "게시글 작성에 실패하였습니다." })
     }
   });
 
@@ -67,8 +67,8 @@ router
           errorMessage: "해당 아이디의 게시물이 아닙니다."
         });
       } else if (ObjectId.isValid(postId) && (Title || Content)) {
-        await Posts.findByIdAndUpdate(postId, { "posts.postUser": postUser, "posts.Title": Title, "posts.Content": Content }); // 스키마 DB posts안에 들어가 있는 애들(경로) 
-        console.log(postId)
+        await Posts.findByIdAndUpdate(postId,
+          { "posts.postUser": postUser, "posts.Title": Title, "posts.Content": Content }); // 스키마 DB posts안에 들어가 있는 애들(경로) 
         return res.status(200).json({ result: "수정 완료" });
       }
     } catch (error) {
@@ -94,8 +94,8 @@ router
         });
         // postUser,  Title,  Content
       } else if (email) {
-        await Posts.deleteOne({ "_id": postId});
-        
+        await Posts.deleteOne({ "_id": postId });
+
         return res.status(200).json({ result: "삭제완료" });
       }
     } catch (error) {

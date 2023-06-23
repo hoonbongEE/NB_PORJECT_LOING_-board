@@ -15,13 +15,15 @@ router.get("/users/me", authMiddleware, async (req, res) => {
     },
   });
 });
-  
+
 router.post("/users", async (req, res) => {
 
   const { email, nickname, password, confirmPassword } = req.body;
-
-  if (password !== confirmPassword) {
-    res.status(400).json({                      
+  const joinMembership = /^[a-zA-Z0-9]{3,}$/;
+  if (!joinMembership) {
+    return res.status(400).json({ errorMessage: "이메일 형식에 맞지 않습니다" })
+  } else if (password !== confirmPassword) {
+    res.status(400).json({
       errorMessage: "패스워드와 확인 패스워드가 일치하지 않습니다.",
     });
     return;
@@ -40,7 +42,7 @@ router.post("/users", async (req, res) => {
     const user = new userSchema({ email, nickname, password });
     await user.save();
 
-    res.status(200).json({});
+    res.status(200).json({ message: "회원가입에 성공하였습니다." });
   } catch (error) {
     console.error(error);
     res.status(500).json({
